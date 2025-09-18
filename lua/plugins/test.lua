@@ -3,6 +3,7 @@ return {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "nvim-neotest/nvim-nio",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
@@ -23,13 +24,15 @@ return {
         table.insert(
           adapters,
           require("neotest-dart")({
-            command = "f", -- because there is an alias f = fvm flutter
+            command = "fvm flutter",
+            use_lsp = true,
+            custom_test_method_names = { "testMobileWidgets", "testWebWidgets" },
           })
         )
       end
 
       ---@diagnostic disable-next-line: missing-fields
-      neotest.setup({ adapters = adapters })
+      neotest.setup({ adapters = adapters, diagnostic = { enabled = true } })
     end,
   },
 

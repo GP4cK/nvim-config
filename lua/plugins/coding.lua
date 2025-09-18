@@ -18,4 +18,8 @@ return {
     "tpope/vim-surround",
     event = "VeryLazy",
   },
+  {
+    "mg979/vim-visual-multi",
+    branch = "master",
+  },
 }

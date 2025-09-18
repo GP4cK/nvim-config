@@ -6,3 +6,9 @@ vim.keymap.set("n", "<leader>vb", "viwf(%", { desc = "Select till )" })
 vim.keymap.set("n", "<leader>vB", "viwf{%", { desc = "Select till }" })
 vim.keymap.set({ "i", "v", "c" }, "<C-c>", "<Esc>", { desc = "Exit to normal mode" })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select entire buffer" })
+
+vim.keymap.del("n", "<C-j>")
+vim.keymap.set("n", "<C-j>", "5gjzz", { desc = "Scroll 5 lines down" })
+
+vim.keymap.del("n", "<C-k>")
+vim.keymap.set("n", "<C-k>", "5gkzz", { desc = "Scroll 5 lines down" })
