@@ -1,10 +1,33 @@
 return {
-  "folke/tokyonight.nvim",
-  opts = {
-    transparent = true,
-    styles = {
-      sidebars = "transparent",
-      floats = "transparent",
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
     },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      -- Replace the branch component with a shortened version
+      opts.sections.lualine_b = {
+        {
+          "branch",
+          fmt = function(name)
+            if not name then
+              return ""
+            end
+            local max = 20
+            if #name > max then
+              return name:sub(1, max) .. "…"
+            end
+            return name
+          end,
+        },
+      }
+    end,
   },
 }
