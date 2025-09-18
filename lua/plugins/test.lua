@@ -1,0 +1,40 @@
+return {
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      local neotest = require("neotest")
+      local adapters = {}
+
+      -- Conditionally register adapters
+      if vim.fn.filereadable("jest.config.js") == 1 or vim.fn.filereadable("jest.config.ts") == 1 then
+        table.insert(adapters, require("neotest-jest")({}))
+      end
+
+      if vim.fn.filereadable("vitest.config.ts") == 1 or vim.fn.filereadable("vitest.config.js") == 1 then
+        table.insert(adapters, require("neotest-vitest")({}))
+      end
+
+      if vim.fn.filereadable("pubspec.yaml") == 1 then
+        table.insert(
+          adapters,
+          require("neotest-dart")({
+            command = "f", -- because there is an alias f = fvm flutter
+          })
+        )
+      end
+
+      ---@diagnostic disable-next-line: missing-fields
+      neotest.setup({ adapters = adapters })
+    end,
+  },
+
+  -- adapters declared separately so they lazy-load when required
+  { "nvim-neotest/neotest-jest", lazy = true },
+  { "marilari88/neotest-vitest", lazy = true },
+  { "sidlatau/neotest-dart", lazy = true },
+}
