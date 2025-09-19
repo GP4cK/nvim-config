@@ -30,16 +30,4 @@ return {
     })
     require("telescope").load_extension("flutter")
   end,
-  keys = {
-    {
-      "<leader>fc",
-      "<cmd>Telescope flutter commands<CR>",
-      desc = "Commands list",
-    },
-    {
-      "<leader>fe",
-      "<cmd>FlutterEmulators<CR>",
-      desc = "Emulators",
-    },
-  },
 }
