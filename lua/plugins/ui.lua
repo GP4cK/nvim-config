@@ -1,12 +1,19 @@
 return {
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
     opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
+      flavour = "macchiato",
+      transparent_background = true,
     },
   },
   {
@@ -36,5 +43,11 @@ return {
         },
       }
     end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
   },
 }
