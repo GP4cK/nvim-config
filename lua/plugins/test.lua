@@ -34,6 +34,24 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       neotest.setup({ adapters = adapters, diagnostic = { enabled = true } })
     end,
+    keys = {
+      {
+        "<leader>tg",
+        function()
+          ---@diagnostic disable-next-line: missing-fields
+          require("neotest").run.run({ extra_args = { "--update-goldens" } })
+        end,
+        desc = "Run Nearest (Update Goldens)",
+      },
+      {
+        "<leader>tG",
+        function()
+          ---@diagnostic disable-next-line: missing-fields
+          require("neotest").run.run({ vim.fn.expand("%"), extra_args = { "--update-goldens" } })
+        end,
+        desc = "Run File (Update Goldens)",
+      },
+    },
   },
 
   -- adapters declared separately so they lazy-load when required
