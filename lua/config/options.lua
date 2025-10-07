@@ -10,3 +10,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
   end,
 })
+
+-- Enhanced folding options for nvim-ufo
+vim.o.foldcolumn = "1" -- Show fold column
+vim.o.foldlevel = 99 -- Start with all folds open
+vim.o.foldlevelstart = 99 -- Start with all folds open when opening files
+vim.o.foldenable = true
