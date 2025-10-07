@@ -13,7 +13,7 @@ return {
     "catppuccin/nvim",
     opts = {
       flavour = "macchiato",
-      transparent_background = true,
+      -- transparent_background = true,
     },
   },
   {
