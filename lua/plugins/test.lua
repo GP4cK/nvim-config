@@ -19,6 +19,13 @@ return {
             filter_dir = function(_, rel_path)
               return not rel_path:match("dist") and not rel_path:match("node_modules")
             end,
+            isTestFile = function(file_path)
+              if not file_path then
+                return false
+              end
+
+              return file_path:match("%.e2e%.spec%.ts$")
+            end,
           })
         )
       end
@@ -29,6 +36,9 @@ return {
           require("neotest-vitest")({
             filter_dir = function(_, rel_path)
               return not rel_path:match("dist") and not rel_path:match("node_modules")
+            end,
+            is_test_file = function(file_path)
+              return file_path:match("%.spec%.ts$") and not file_path:match("%.e2e%.spec%.ts")
             end,
           })
         )
