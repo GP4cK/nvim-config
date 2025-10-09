@@ -13,6 +13,10 @@ vim.keymap.set("n", "<C-j>", "5gjzz", { desc = "Scroll 5 lines down" })
 vim.keymap.del("n", "<C-k>")
 vim.keymap.set("n", "<C-k>", "5gkzz", { desc = "Scroll 5 lines down" })
 
+vim.keymap.set("n", "<leader>yp", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+end, { desc = "Yank file path" })
+
 -- Buffer navigation by number
 for i = 1, 9 do
   vim.keymap.set("n", "<leader>" .. i, function()
