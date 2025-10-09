@@ -16,3 +16,5 @@ vim.o.foldcolumn = "1" -- Show fold column
 vim.o.foldlevel = 99 -- Start with all folds open
 vim.o.foldlevelstart = 99 -- Start with all folds open when opening files
 vim.o.foldenable = true
+
+vim.opt.winbar = "%f %m"
