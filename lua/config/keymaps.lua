@@ -8,10 +8,10 @@ vim.keymap.set({ "i", "v", "c" }, "<C-c>", "<Esc>", { desc = "Exit to normal mod
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select entire buffer" })
 
 vim.keymap.del("n", "<C-j>")
-vim.keymap.set("n", "<C-j>", "5gjzz", { desc = "Scroll 5 lines down" })
+vim.keymap.set({ "n", "v" }, "<C-j>", "5gjzz", { desc = "Scroll 5 lines down" })
 
 vim.keymap.del("n", "<C-k>")
-vim.keymap.set("n", "<C-k>", "5gkzz", { desc = "Scroll 5 lines down" })
+vim.keymap.set({ "n", "v" }, "<C-k>", "5gkzz", { desc = "Scroll 5 lines down" })
 
 vim.keymap.set("n", "<leader>yp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
