@@ -8,6 +8,11 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
+      -- Temporary fix: ensure treesitter module is loaded before neotest
+      -- https://github.com/nvim-neotest/neotest/issues/527#issuecomment-3172813483
+      -- Remove when this gets merged and try to run a jest test
+      -- https://github.com/neovim/neovim/pull/35195
+      vim.treesitter.get_parser()
       local neotest = require("neotest")
       local adapters = {}
 
