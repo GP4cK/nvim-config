@@ -18,3 +18,10 @@ vim.o.foldlevelstart = 99 -- Start with all folds open when opening files
 vim.o.foldenable = true
 
 vim.opt.winbar = "%f %m"
+
+-- Set WezTerm window title to current project name
+vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+  callback = function()
+    vim.o.title = true
+  end,
+})
