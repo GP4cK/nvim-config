@@ -73,4 +73,21 @@ return {
     },
     cmd = { "PRView" },
   },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    ---@type Flash.Config
+    opts = {
+      jumps = {
+        autojump = true,
+      },
+    },
+  },
+  {
+    "axelvc/template-string.nvim",
+    opts = {
+      remove_template_string = true,
+    },
+  },
 }

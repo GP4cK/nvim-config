@@ -8,6 +8,9 @@ vim.keymap.set({ "i", "v", "c" }, "<C-c>", "<Esc>", { desc = "Exit to normal mod
 vim.keymap.set("n", "<Char-0xAA>", "ggVG", { desc = "Select entire buffer" })
 vim.keymap.set({ "n", "i" }, "<Char-0xAB>", "<cmd>write<cr>", { desc = "Save current file" })
 
+vim.keymap.set({ "n", "i" }, "<Char-0xAC>", ":bprevious<CR>")
+vim.keymap.set({ "n", "i" }, "<Char-0xAD>", ":bnext<CR>")
+
 vim.keymap.set({ "n", "v" }, "H", "^", { desc = "Go to beginning of line" })
 vim.keymap.set({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 
@@ -16,6 +19,10 @@ vim.keymap.set({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 --
 -- vim.keymap.del("n", "<C-k>")
 -- vim.keymap.set({ "n", "v" }, "<C-k>", "5gkzz", { desc = "Scroll 5 lines down" })
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down and center" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up and center" })
+vim.keymap.set("n", "gd", "gdzz", { desc = "Go to definition" })
 
 vim.keymap.set("n", "<leader>yp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
