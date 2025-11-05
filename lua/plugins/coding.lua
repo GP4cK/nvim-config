@@ -77,10 +77,13 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     vscode = true,
-    ---@type Flash.Config
+    ---@module 'flash'
     opts = {
       jumps = {
         autojump = true,
+      },
+      keys = {
+        { "S", mode = { "x" }, false },
       },
     },
   },
