@@ -11,8 +11,8 @@ vim.keymap.set({ "n", "i" }, "<Char-0xAB>", "<cmd>write<cr>", { desc = "Save cur
 vim.keymap.set({ "n", "i" }, "<Char-0xAC>", ":bprevious<CR>")
 vim.keymap.set({ "n", "i" }, "<Char-0xAD>", ":bnext<CR>")
 
-vim.keymap.set({ "n", "v" }, "H", "^", { desc = "Go to beginning of line" })
-vim.keymap.set({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
+vim.keymap.set({ "n", "v", "o" }, "H", "^", { desc = "Go to beginning of line" })
+vim.keymap.set({ "n", "v", "o" }, "L", "$", { desc = "Go to end of line" })
 
 -- vim.keymap.del("n", "<C-j>")
 -- vim.keymap.set({ "n", "v" }, "<C-j>", "5gjzz", { desc = "Scroll 5 lines down" })
