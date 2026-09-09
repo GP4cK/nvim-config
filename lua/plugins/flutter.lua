@@ -9,7 +9,6 @@ return {
   {
     "nvim-flutter/flutter-tools.nvim",
     lazy = false,
-    event = "BufReadPre *.dart",
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("flutter-tools").setup({
