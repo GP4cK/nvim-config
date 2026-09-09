@@ -40,7 +40,6 @@ return {
           auto_open_browser = false,
         },
       })
-      require("telescope").load_extension("flutter")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
