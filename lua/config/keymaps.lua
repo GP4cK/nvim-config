@@ -26,7 +26,6 @@ vim.keymap.set({ "n", "v", "o" }, "L", "$", { desc = "Go to end of line" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up and center" })
-vim.keymap.set("n", "gd", "gdzz", { desc = "Go to definition" })
 
 vim.keymap.set("n", "<leader>yp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
