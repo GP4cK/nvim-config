@@ -14,9 +14,6 @@ return {
     config = function()
       require("flutter-tools").setup({
         lsp = {
-          color = {
-            enabled = true,
-          },
           on_attach = function(client)
             client.server_capabilities.inlayHintProvider = false
           end,
@@ -45,6 +42,12 @@ return {
         },
       })
       require("telescope").load_extension("flutter")
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(ev)
+          vim.lsp.document_color.enable(true, { bufnr = ev.buf })
+        end,
+      })
     end,
   },
 }
