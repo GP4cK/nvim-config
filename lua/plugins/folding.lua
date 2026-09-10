@@ -11,7 +11,28 @@ return {
       end,
     },
     config = function(_, opts)
-      require("ufo").setup(opts)
+      -- nvim-ufo and lewis6991/async.nvim (pulled in by the LazyVim refactoring
+      -- extra) both ship a top-level lua/async.lua. async.nvim wins by runtimepath
+      -- order, so ufo's `require('async')` gets a module without the promise API and
+      -- folds error on every buffer. Pin `async` to promise-async's version only
+      -- while ufo's async-dependent modules load, then restore it -- refactoring.nvim
+      -- calls async.run/await/wrap, which promise-async does not provide.
+      local saved = package.loaded["async"]
+      local pa_dir = require("lazy.core.config").plugins["promise-async"].dir
+      package.loaded["async"] = dofile(pa_dir .. "/lua/async.lua")
+
+      local ok, err = pcall(function()
+        -- these three capture `async` at load time, so they must load while pinned
+        require("ufo.fold")
+        require("ufo.preview")
+        require("ufo.provider.lsp.nvim")
+        require("ufo").setup(opts)
+      end)
+
+      package.loaded["async"] = saved
+      if not ok then
+        error(err)
+      end
 
       -- Helper function to get the current fold range
       local function get_current_fold_range()
@@ -75,4 +96,3 @@ return {
     end,
   },
 }
-

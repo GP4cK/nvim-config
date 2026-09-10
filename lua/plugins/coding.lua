@@ -54,13 +54,14 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     vscode = true,
+    -- `keys` is a lazy.nvim spec field, not a flash option: it must stay outside `opts`.
+    keys = {
+      { "S", mode = { "x" }, false },
+    },
     ---@module 'flash'
     opts = {
-      jumps = {
+      jump = {
         autojump = true,
-      },
-      keys = {
-        { "S", mode = { "x" }, false },
       },
     },
   },
