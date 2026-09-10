@@ -1,7 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-vim.keymap.set("n", "<C-x>", ":nohl<CR>", { desc = "Clear search highlights" })
 
 vim.keymap.set("n", "<leader>p", function()
   LazyVim.pick("find_files", { root = true })()
