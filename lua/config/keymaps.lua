@@ -30,6 +30,11 @@ vim.keymap.set("n", "<leader>yp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
 end, { desc = "Yank file path" })
 
+vim.keymap.set("n", "<leader>xc", function()
+  vim.fn.setqflist({}, "f")
+  vim.cmd.cclose()
+end, { desc = "Clear Quickfix List" })
+
 -- Buffer navigation by number
 for i = 1, 9 do
   vim.keymap.set("n", "<leader>" .. i, function()
