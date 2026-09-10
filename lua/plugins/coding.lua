@@ -64,6 +64,23 @@ return {
         autojump = true,
       },
     },
+    config = function(_, opts)
+      require("flash").setup(opts)
+
+      local function set_label_highlight()
+        vim.api.nvim_set_hl(0, "FlashLabel", {
+          bg = "#ed8796", -- Catppuccin Macchiato red
+          fg = "#24273a", -- Catppuccin Macchiato base
+          bold = true,
+        })
+      end
+
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = vim.api.nvim_create_augroup("flash_label_highlight", { clear = true }),
+        callback = set_label_highlight,
+      })
+      set_label_highlight()
+    end,
   },
   {
     "axelvc/template-string.nvim",
