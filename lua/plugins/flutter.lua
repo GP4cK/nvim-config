@@ -25,7 +25,7 @@ return {
             },
           },
         },
-        fmv = true,
+        fvm = true,
         debugger = {
           enabled = true,
         },
