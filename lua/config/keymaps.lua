@@ -35,3 +35,5 @@ for i = 1, 9 do
     require("bufferline").go_to(i, true)
   end, { desc = "Go to buffer " .. i })
 end
+
+vim.keymap.set("n", "<leader>O", "<cmd>Octo<cr>", { desc = "Octo" })
