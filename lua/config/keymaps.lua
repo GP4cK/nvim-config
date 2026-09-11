@@ -41,10 +41,3 @@ for i = 1, 9 do
     require("bufferline").go_to(i, true)
   end, { desc = "Go to buffer " .. i })
 end
-
--- VSCode-like text objects: b for parentheses (), B for square brackets []
--- Works with operators: cib, dib, yib, vib, ciB, diB, yiB, viB, etc.
-vim.keymap.set({ "x", "o" }, "ib", "i(", { desc = "Inside parentheses" })
-vim.keymap.set({ "x", "o" }, "ab", "a(", { desc = "Around parentheses" })
-vim.keymap.set({ "x", "o" }, "iB", "i[", { desc = "Inside square brackets" })
-vim.keymap.set({ "x", "o" }, "aB", "a[", { desc = "Around square brackets" })
