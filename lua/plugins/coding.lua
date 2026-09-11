@@ -88,4 +88,5 @@ return {
       remove_template_string = true,
     },
   },
+  { "ChmaraX/herdr-nvim", opts = {} },
 }
