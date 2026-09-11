@@ -17,12 +17,6 @@ vim.keymap.set({ "n", "i" }, "<Char-0xAD>", ":bnext<CR>")
 vim.keymap.set({ "n", "v", "o" }, "H", "^", { desc = "Go to beginning of line" })
 vim.keymap.set({ "n", "v", "o" }, "L", "$", { desc = "Go to end of line" })
 
--- vim.keymap.del("n", "<C-j>")
--- vim.keymap.set({ "n", "v" }, "<C-j>", "5gjzz", { desc = "Scroll 5 lines down" })
---
--- vim.keymap.del("n", "<C-k>")
--- vim.keymap.set({ "n", "v" }, "<C-k>", "5gkzz", { desc = "Scroll 5 lines down" })
-
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up and center" })
 
