@@ -20,6 +20,15 @@ return {
         table.insert(
           adapters,
           require("neotest-jest")({
+            -- Resolve the config without vim.fn.glob(), which neotest-jest calls
+            -- in a fast event context and which then fails with E5560.
+            jestConfigFile = function()
+              local cwd = vim.uv.cwd()
+              local ts = cwd .. "/jest.config.ts"
+
+              return vim.uv.fs_stat(ts) and ts or cwd .. "/jest.config.js"
+            end,
+            env = { NODE_OPTIONS = "--experimental-vm-modules" },
             filter_dir = function(_, rel_path)
               return not rel_path:match("dist") and not rel_path:match("node_modules")
             end,
