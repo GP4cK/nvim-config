@@ -25,3 +25,8 @@ vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
     vim.o.title = true
   end,
 })
+
+-- Wrap long lines at word boundaries
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showbreak = "↪ "
