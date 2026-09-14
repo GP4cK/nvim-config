@@ -5,6 +5,18 @@ return {
       layout = {
         fullscreen = true,
       },
+      win = {
+        input = {
+          keys = {
+            ["<c-y>"] = { "focus_preview", mode = { "i", "n" } },
+          },
+        },
+        preview = {
+          keys = {
+            ["<c-y>"] = "focus_input",
+          },
+        },
+      },
       sources = {
         explorer = {
           layout = {
