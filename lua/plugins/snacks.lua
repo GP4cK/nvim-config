@@ -23,6 +23,14 @@ return {
             fullscreen = false,
           },
         },
+        -- `vim.ui.select` sizes its list box with `vim.o.lines * 0.8 - 10`, which is
+        -- usually fractional. Fullscreen keeps that value, and `nvim_win_set_config`
+        -- rejects it with "Invalid 'height': Number is not integral".
+        select = {
+          layout = {
+            fullscreen = false,
+          },
+        },
       },
     },
     styles = {
