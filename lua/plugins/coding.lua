@@ -61,7 +61,7 @@ return {
     ---@module 'flash'
     opts = {
       jump = {
-        autojump = true,
+        autojump = false,
       },
     },
     config = function(_, opts)
