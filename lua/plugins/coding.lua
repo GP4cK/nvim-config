@@ -23,8 +23,17 @@ return {
     branch = "master",
   },
   {
-    "nvim-treesitter/nvim-treesitter-context", -- [c to jump to context
+    "nvim-treesitter/nvim-treesitter-context",
     event = "VeryLazy",
+    keys = {
+      {
+        "[x",
+        function()
+          require("treesitter-context").go_to_context(vim.v.count1)
+        end,
+        desc = "Jump to context",
+      },
+    },
     opts = {
       enable = true, -- enable this plugin (true/false)
       max_lines = 3, -- how many lines the context window should show (0 = unlimited)
