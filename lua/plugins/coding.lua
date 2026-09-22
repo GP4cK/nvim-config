@@ -72,6 +72,28 @@ return {
       jump = {
         autojump = false,
       },
+      modes = {
+        char = {
+          -- `flash.plugins.char` sets `search.mode` itself, so it wins over any
+          -- `search.mode` set here. `config` runs last, so patch the pattern there.
+          config = function(opts)
+            -- keep the upstream defaults from `flash.config`
+            opts.autohide = opts.autohide or (vim.fn.mode(true):find("no") and vim.v.operator == "y")
+            opts.jump_labels = opts.jump_labels
+              and vim.v.count == 0
+              and vim.fn.reg_executing() == ""
+              and vim.fn.reg_recording() == ""
+
+            -- force case-sensitive f/t/F/T, which `ignorecase` would otherwise relax
+            local mode = opts.search.mode
+            if type(mode) == "function" then
+              opts.search.mode = function(c)
+                return mode(c) .. "\\C"
+              end
+            end
+          end,
+        },
+      },
     },
     config = function(_, opts)
       require("flash").setup(opts)
