@@ -12,6 +12,7 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("flutter-tools").setup({
+        root_patterns = { ".git" },
         lsp = {
           on_attach = function(client)
             client.server_capabilities.inlayHintProvider = false
