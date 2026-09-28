@@ -40,6 +40,4 @@ for i = 1, 9 do
   end, { desc = "Go to buffer " .. i })
 end
 
-vim.keymap.set("n", "<leader>O", "<cmd>Octo<cr>", { desc = "Octo" })
-
 vim.keymap.set({ "n", "v" }, "gf", "gF", { desc = "Go to file (and line number)" })
