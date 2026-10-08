@@ -121,8 +121,18 @@ return {
   },
   {
     "ChmaraX/herdr-nvim",
-    opts = {
-      prefix = "<leader>h",
+    -- herdr's nvim daemon calls setup() again on VimEnter; default keymaps would warn on the second call.
+    -- Load eagerly so our opts are applied before that, otherwise the daemon loads its own copy with defaults.
+    lazy = false,
+    opts = { keymaps = false },
+    keys = {
+      { "<leader>ac", "<CMD>Herdr comment<CR>", desc = "Herdr: comment line" },
+      { "<leader>ac", ":Herdr comment<CR>", mode = "x", desc = "Herdr: comment selection" },
+      { "<leader>al", "<CMD>Herdr list<CR>", desc = "Herdr: list comments" },
+      { "<leader>as", "<CMD>Herdr send<CR>", desc = "Herdr: paste comments to agent" },
+      { "<leader>aS", "<CMD>Herdr submit<CR>", desc = "Herdr: send comments to agent" },
+      { "<leader>ai", "<CMD>Herdr ref<CR>", desc = "Herdr: reference line" },
+      { "<leader>ai", ":Herdr ref<CR>", mode = "x", desc = "Herdr: reference selection" },
     },
   },
 }
